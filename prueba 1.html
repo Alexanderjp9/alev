@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Primera Página Web</title>
+    <style>
+        /* Estilos CSS van aquí */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #f08ecf;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Este es mi primera pagina espero que te guste :,b</h1>
+    </header>
+
+    <
+        <h2>¡Hola Mery :,b!</h2>
+        <p>Como dicen un ingeniero de sistema resuelve. Mi querida Mery, dejame decirte por esta vez,
+            Disculpame por cosas que te dije no lo pense, tuve celos y me altere mucho pero me di cuenta 
+            que solamente te hago daño con mis palabras espero que me perdones, te quiero Mery y mucho. 
+    </section>
+</body>
+</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botón de Sí o No</title>
+    <style>
+        /* Estilos CSS van aquí */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #botones {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Espacio entre los botones */
+        }
+
+        .siButton, .noButton {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .siButton {
+            transition: transform 0.3s ease;
+        }
+
+        .noButton {
+            transition: all 0.3s ease;
+        }
+
+        #imagen {
+            display: none;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        var isGrowing = false; // Variable para rastrear si el botón está creciendo o encogiendo
+        var intervalId; // Variable para almacenar el ID del intervalo
+
+        function mostrarImagen() {
+            var imagen = document.getElementById('imagen');
+            imagen.style.display = 'block'; // Mostrar la imagen
+        }
+
+        function mostrarMensaje() {
+            alert("¡Seleccionaste Sí! Sabia que ibas a decir que si te quieroooo muchooooor.");
+        }
+
+        function mostrarImagenYSi() {
+            mostrarImagen();
+            mostrarMensaje();
+        }
+
+        function responder(opcion) {
+            if (opcion === 'si') {
+                mostrarImagenYSi();
+            } else if (opcion === 'no') {
+                var siButton = document.getElementById('siButton');
+                if (!isGrowing) { // Si el botón no está creciendo actualmente
+                    isGrowing = true; // Establecer la variable isGrowing a verdadero
+                    intervalId = setInterval(function() {
+                        var scale = parseFloat(siButton.style.transform.replace('scale(', '').replace(')', '')) || 1;
+                        scale += 0.05; // Incremento gradual
+                        siButton.style.transform = 'scale(' + scale + ')';
+                        if (scale >= 1.5) { // Cuando alcanza cierto tamaño
+                            clearInterval(intervalId); // Detener el intervalo
+                            isGrowing = false; // Restablecer la variable isGrowing
+                        }
+                    }, 30); // Intervalo de tiempo (30ms)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>¿Me perdonas?</h2>
+    <div id="botones">
+        <button id="siButton" class="siButton" onclick="responder('si')">Sí</button>
+        <button class="noButton" onclick="responder('no')">No</button>
+    </div>
+
+    <img id="imagen" src="https://i.pinimg.com/originals/a6/b5/43/a6b543273a760e9b502f53bd6f0c5334.gif" alt="Imagen a mostrar">
+</body>
+</html>
